@@ -14,6 +14,7 @@ app.use(cors({
   origin : "https://dailyfoodapp.netlify.app",
   credentials: true
 }));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
