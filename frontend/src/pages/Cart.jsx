@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import "../App.css"
 import Header from '../Components/Header'
@@ -5,6 +6,8 @@ import { useSelector , useDispatch } from 'react-redux';
 import { increaseQuantity , decreaseQuantity , clearCart } from '../redux/cartSlice';
 import axios from "axios"
 import { Link } from 'react-router-dom';
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function Cart() {
    const dispatch = useDispatch();
@@ -23,14 +26,14 @@ function Cart() {
       try {
         setOrder(true);
         console.log("clicked");
-        const res = await axios.get("/api/protected" , {
+        const res = await axios.get(`${apiUrl}/protected` , {
           withCredentials : true
         });
         console.log("response",res.data.currentUser);
         if(res.status === 200){
          console.log("looged in");
          setIsVisible(true);
-         const store = await axios.post("/api/storeOrder", { cartItems } , {
+         const store = await axios.post(`${apiUrl}/storeOrder`, { cartItems } , {
           withCredentials : true
          });
          console.log("res from setOrder",store);
@@ -52,7 +55,7 @@ function Cart() {
           return;
         }else{
           console.log("valid number");
-          const res = await axios.post("/api/menu/cart/storeUserInfo" , { name , number } , {
+          const res = await axios.post(`${apiUrl}/menu/cart/storeUserInfo` , { name , number } , {
             withCredentials: true,
           });
           console.log("resposne ",res.data);
