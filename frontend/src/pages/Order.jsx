@@ -10,7 +10,7 @@ function Order() {
       const res = await axios.get("/api/getOrders" , {
         withCredentials : true
       });
-      console.log("all orders",res.data.user.number);
+      console.log("all orders",res);
       setNumber(res.data.user.number);
       setOrders(res.data.orders);
     }
