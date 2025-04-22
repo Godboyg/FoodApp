@@ -62,6 +62,7 @@ const Menu = () => {
     const fetchAll = async () => {
       try {
         const res = await axios.get('/api/menu'); 
+        console.log("data from backend",res);
         setMenuItems(res.data);
       } catch (err) {
         console.error('Error fetching full menu:', err);
