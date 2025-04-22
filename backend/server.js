@@ -117,7 +117,7 @@ app.get("/menu",async(req,res)=>{
     try{
         const response = await Menu.find();
         console.log("data in backend",response);
-        res.json({ res : response});
+        res.send( response );
     }catch(err){
         res.json(res);
     }
