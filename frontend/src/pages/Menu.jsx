@@ -64,9 +64,9 @@ const Menu = () => {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const res = await axios.get(`${apiUrl}/api/menu`); 
-        console.log("data from backend",res);
-        setMenuItems(res.data);
+        const res = await axios.get(`${apiUrl}/menu`); 
+        console.log("data from backend",res.data);
+        setMenuItems(res.data.response);
       } catch (err) {
         console.error('Error fetching full menu:', err);
         setMenuItems([]);
