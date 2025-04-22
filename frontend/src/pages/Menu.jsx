@@ -28,7 +28,7 @@ const Menu = () => {
       }
 
       try {
-        const response = await axios.post("/api/menu/search" , { name: value })
+        const response = await axios.post(`${apiUrl}/menu/search` , { name: value })
         console.log("menu item",menuItems[0]);
         console.log("data", response.data[0]);
         setMenuItems(response.data);
