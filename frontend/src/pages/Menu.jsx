@@ -61,11 +61,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const res = await axios.get('/api/menu' ,{
-           headers: {
-            'Accept': 'application/json'
-           }
-        }); 
+        const res = await axios.get('/api/menu'); 
         console.log("data from backend",res);
         setMenuItems(res.data);
       } catch (err) {
