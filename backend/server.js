@@ -116,7 +116,7 @@ app.get('/protected', verifyToken, (req, res) => {
 app.get("/menu",async(req,res)=>{
     try{
         const response = await Menu.find();
-        res.status(200).json(response);
+        res.status(200).json({ message : "Menu items",response});
     }catch(err){
         res.json(res);
     }
