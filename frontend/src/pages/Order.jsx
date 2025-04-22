@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Components/Header'
-import axios from 'axios'
+import axios from 'axios''
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function Order() {
     const [ orders , setOrders ] = useState([]);
     const [ number , setNumber ] = useState();
 
     const getOrders = async() => {
-      const res = await axios.get("/api/getOrders" , {
+      const res = await axios.get(`${apiUrl}/getOrders` , {
         withCredentials : true
       });
       console.log("all orders",res);
@@ -27,7 +29,7 @@ function Order() {
 
     const deleteOrder = async (id) => {
         try {
-          await axios.delete(`/api/${id}`);
+          await axios.delete(`${apiUrl}/${id}`);
           setOrders(orders.filter((order) => order._id !== id));
         } catch (error) {
           console.error('Failed to delete order:', error);
