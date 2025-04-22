@@ -113,7 +113,7 @@ const Menu = () => {
       </svg>
       <input type="text" className='border-none outline-none w-full' placeholder='Search Item' value={value} onChange={handleValue}/>
       </div>
-      {Array.isArray(menuItems) && menuItems.length > 0 ? (
+      {Array.isArray(menuItems) && menuItems?.length > 0 ? (
             menuItems.map((menu, menuIndex) => (
               <div key={menuIndex} className="mb-6">
                 <h2 className="text-2xl font-semibold">Menu {menuIndex + 1}</h2>
