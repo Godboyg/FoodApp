@@ -6,6 +6,7 @@ const Order = require("./db/order.js");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const verifyToken = require('./verifyToken');
 require("dotenv").config();
 
@@ -15,44 +16,92 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser());
 
 // app.get('/', async(req, res) => {
 
 //     res.send('Hello');
 //     const menu = new Menu({
-//         // restaurantId: '661e79a06fa4e4b5fcf6f201',
-//         Appetizers: [
-//           {
-//             name: 'Rolls',
-//             description: 'Crispy rolls stuffed with vegetables.',
-//             price: 99,
-//             imageUrl: 'https://example.com/spring-roll.jpg',
-//             tags: ['veg'],
-//           }
-//         ],
-//         MainCourses: [
-//           {
-//             name: 'Paneer Masala',
-//             description: 'Soft paneer in creamy tomato gravy.',
-//             price: 199,
-//             tags: ['veg', 'spicy']
-//           }
-//         ],
-//         Desserts: [
-//           {
-//             name: 'Gulab Jamun',
-//             description: 'Sweet syrupy Indian dessert.',
-//             price: 69,
-//           }
-//         ],
-//         Drinks: [
-//           {
-//             name: 'Mango Lassi',
-//             description: 'Chilled mango yogurt drink.',
-//             price: 79,
-//           }
-//         ]
-//       });
+//       "Appetizers": [
+//         {
+//           "name": "Spring Rolls",
+//           "description": "Crispy rolls with fresh veggies",
+//           "price": 5.99,
+//           "imageUrl": "https://example.com/springroll.jpg",
+//           "isAvailable": true,
+//           "extras": [
+//             { "name": "Sweet Chili Sauce", "price": 0.5 }
+//           ],
+//           "tags": ["starter", "vegetarian"]
+//         },
+//         {
+//           "name": "Garlic Bread",
+//           "description": "Toasted bread with garlic butter",
+//           "price": 3.49,
+//           "tags": ["starter", "veg"]
+//         }
+//       ],
+//       "MainCourses": [
+//         {
+//           "name": "Butter Chicken",
+//           "description": "Rich tomato-based gravy with butter and cream",
+//           "price": 12.99,
+//           "imageUrl": "https://example.com/butterchicken.jpg",
+//           "isAvailable": true,
+//           "extras": [
+//             { "name": "Extra Naan", "price": 1.5 }
+//           ],
+//           "tags": ["spicy", "non-veg"]
+//         },
+//         {
+//           "name": "Paneer Tikka Masala",
+//           "description": "Spicy Indian curry with grilled paneer",
+//           "price": 10.5,
+//           "tags": ["vegetarian", "spicy"]
+//         },
+//         {
+//           "name": "Veg Biryani",
+//           "description": "Aromatic basmati rice with vegetables and spices",
+//           "price": 9.5,
+//           "tags": ["rice", "veg"]
+//         }
+//       ],
+//       "Desserts": [
+//         {
+//           "name": "Gulab Jamun",
+//           "description": "Warm milk balls soaked in syrup",
+//           "price": 3.5,
+//           "tags": ["sweet"]
+//         },
+//         {
+//           "name": "Chocolate Lava Cake",
+//           "description": "Rich chocolate cake with a molten center",
+//           "price": 4.99,
+//           "imageUrl": "https://example.com/lavacake.jpg",
+//           "tags": ["chocolate", "dessert"]
+//         }
+//       ],
+//       "Drinks": [
+//         {
+//           "name": "Mango Lassi",
+//           "price": 2.99,
+//           "tags": ["cold", "sweet"]
+//         },
+//         {
+//           "name": "Masala Chai",
+//           "description": "Traditional spiced Indian tea",
+//           "price": 1.99,
+//           "tags": ["hot", "tea"]
+//         },
+//         {
+//           "name": "Cold Coffee",
+//           "description": "Chilled coffee with ice and milk",
+//           "price": 3.25,
+//           "tags": ["cold", "coffee"]
+//         }
+//       ]
+//     }
+//     );
       
 //       await menu.save();
 //       console.log('Menu saved!');
