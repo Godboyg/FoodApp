@@ -8,6 +8,9 @@ import Header from '../Components/Header';
 
 const categories = ['Appetizers', 'MainCourses', 'Desserts', 'Drinks'];
 
+const apiUrl = import.meta.env.VITE_API_URL;
+console.log("backend",apiUrl);
+
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [category, setCategory] = useState('Appetizers');
@@ -61,7 +64,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const res = await axios.get('/api/menu'); 
+        const res = await axios.get(`${apiUrl}/api/menu`); 
         console.log("data from backend",res);
         setMenuItems(res.data);
       } catch (err) {
