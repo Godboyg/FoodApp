@@ -111,7 +111,7 @@ app.get('/protected', verifyToken, (req, res) => {
   // res.send(`Hello, ${req.user.name}! This is a protected route.`);
 });
 
-app.get("/api/menu",async(req,res)=>{
+app.get("/menu",async(req,res)=>{
     try{
         const response = await Menu.find();
         res.status(200).json({ message : "Menu items",response});
