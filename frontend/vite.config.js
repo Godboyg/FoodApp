@@ -6,11 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   server: {
     proxy: {
-      '/api': {
-        target: 'https://foodapp-733a.onrender.com',
-        changeOrigin: false,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+      '/api': 'https://foodapp-733a.onrender.com'
     },
   },
   plugins: [
