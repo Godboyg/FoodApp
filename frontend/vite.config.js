@@ -13,7 +13,7 @@ export default defineConfig({
       '/api': {
         target: 'https://foodapp-733a.onrender.com',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
