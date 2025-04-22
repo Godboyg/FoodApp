@@ -11,12 +11,11 @@ const verifyToken = require('./verifyToken');
 require("dotenv").config();
 
 app.use(cors({
-  origin : "http://localhost:5173",
+  origin : "https://dailyfoodapp.netlify.app",
   credentials: true
 }));
-app.use(express.json());
-app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.get('/', async(req, res) => {
 
