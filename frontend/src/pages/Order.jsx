@@ -10,18 +10,6 @@ function Order() {
     const [ number , setNumber ] = useState();
     const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); 
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <p>Loading your cart...</p>;
-  }
-
     const getOrders = async() => {
       const res = await axios.get(`${apiUrl}/getOrders` , {
         withCredentials : true
@@ -49,6 +37,18 @@ function Order() {
           console.error('Failed to delete order:', error);
         }
       };
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); 
+
+    return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+      return <p>Loading your cart...</p>;
+    }
 
   return (
     <div className="p-4">
