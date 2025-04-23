@@ -47,7 +47,7 @@ function Order() {
     }, []);
 
     if (loading) {
-      return <p className="text-blue-500 text-xl">Loading your cart...</p>;
+      return <p className="text-white text-xl">Loading your cart...</p>;
     }
 
   return (
