@@ -8,6 +8,19 @@ console.log("in order",apiUrl);
 function Order() {
     const [ orders , setOrders ] = useState([]);
     const [ number , setNumber ] = useState();
+    const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <p>Loading your cart...</p>;
+  }
 
     const getOrders = async() => {
       const res = await axios.get(`${apiUrl}/getOrders` , {
