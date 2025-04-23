@@ -3,6 +3,7 @@ import Header from '../Components/Header'
 import axios from 'axios'
 
 const apiUrl = import.meta.env.VITE_API_URL;
+console.log("in order",apiUrl);
 
 function Order() {
     const [ orders , setOrders ] = useState([]);
