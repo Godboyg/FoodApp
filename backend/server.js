@@ -163,7 +163,7 @@ app.post("/menu/cart/storeUserInfo",async(req,res) => {
     const token = jwt.sign({ _id: search.id , name , number } , process.env.Secret , { expiresIn : "5d"});
     res.cookie('jwttoken', token, {
       httpOnly: true,      
-      secure: false,       
+      secure: true,       
       sameSite: 'Lax', 
       maxAge: 5 * 24 * 60 * 60 * 1000,
     });
@@ -174,7 +174,7 @@ app.post("/menu/cart/storeUserInfo",async(req,res) => {
     const token = jwt.sign({ _id : savedUser._id } , process.env.Secret , { expiresIn : "5d"});
     res.cookie('jwttoken', token, {
       httpOnly: true,     
-      secure: false,       
+      secure: true,       
       sameSite: 'Lax', 
       maxAge:  5 * 24 * 60 * 60 * 1000,
     });
