@@ -164,7 +164,7 @@ app.post("/menu/cart/storeUserInfo",async(req,res) => {
     res.cookie('jwttoken', token, {
       httpOnly: true,      
       secure: true,       
-      sameSite: 'Lax', 
+      sameSite: 'None', 
       maxAge: 5 * 24 * 60 * 60 * 1000,
     });
     return res.json({ message : "user found" , token});
@@ -175,7 +175,7 @@ app.post("/menu/cart/storeUserInfo",async(req,res) => {
     res.cookie('jwttoken', token, {
       httpOnly: true,     
       secure: true,       
-      sameSite: 'Lax', 
+      sameSite: 'None', 
       maxAge:  5 * 24 * 60 * 60 * 1000,
     });
     res.json({ message : "user Saved" , token});
