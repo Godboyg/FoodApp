@@ -111,7 +111,7 @@ function Cart() {
              <p>₹{totalPrice}</p>
            </div>
            <div 
-           className="absolute bottom-10 max-sm:bottom-20 max-sm:left-7 rounded-md font-bold text-2xl bg-green-500 p-3 hover:cursor-pointer max-sm:w-84 max-sm:text-center"
+           className="absolute bottom-10 max-sm:bottom-20 max-sm:left-8 rounded-md font-bold text-2xl bg-green-500 p-3 hover:cursor-pointer max-sm:w-84 max-sm:text-center"
            onClick={handleOrder}
            >
              Place Order
